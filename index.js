@@ -215,6 +215,8 @@ async function main () {
   if (reverseOrder) {
     commitsParsed.reverse()
   }
+  
+  core.setOutput('changes', commitsParsed)
 
   // BUILD CHANGELOG
 
