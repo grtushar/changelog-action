@@ -162,6 +162,9 @@ async function main () {
   if (!commits || commits.length < 1) {
     return core.setFailed('Couldn\'t find any commits between latest and previous tags.')
   }
+  
+  core.info(commits)
+  return core.setOutput('changes', commits)
 
   // PARSE COMMITS
 
@@ -215,8 +218,6 @@ async function main () {
   if (reverseOrder) {
     commitsParsed.reverse()
   }
-  
-  return core.setOutput('changes', commitsParsed)
 
   // BUILD CHANGELOG
 
